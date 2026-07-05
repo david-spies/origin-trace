@@ -137,7 +137,7 @@ curl -X POST http://127.0.0.1:8000/api/v1/analyze \
   -d '{"text": "Hello\u200bWorld"}'
 ```
 
-## 1 — Clone and install
+## Clone and install
 
 ```bash
 git clone https://github.com/david-spies/origin-trace.git
