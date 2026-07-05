@@ -1,0 +1,4 @@
+This is a canary test file.
+Hidden​Word uses a zero-width space.
+Non breaking uses NBSP.
+End of file.

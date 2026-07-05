@@ -1,0 +1,106 @@
+<svg width="100%" height="260" viewBox="0 0 1200 260" xmlns="http://www.w3.org/2000/svg" role="img">
+  <title>Origin Trace</title>
+  <desc>Origin Trace banner: a scanline sweeps down the frame while tag chips reveal hidden Unicode codepoints beneath the logo, title, and subtitle.</desc>
+
+  <defs>
+    <radialGradient id="glow" cx="50%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#123936" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#0A0D12" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="beamSoft" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#3FD4C7" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#3FD4C7" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#3FD4C7" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="beamCore" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#3FD4C7" stop-opacity="0"/>
+      <stop offset="12%" stop-color="#3FD4C7" stop-opacity="0.9"/>
+      <stop offset="50%" stop-color="#EAFFFC" stop-opacity="1"/>
+      <stop offset="88%" stop-color="#3FD4C7" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#3FD4C7" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- base -->
+  <rect width="1200" height="260" fill="#0A0D12"/>
+  <rect width="1200" height="260" fill="url(#glow)"/>
+
+  <!-- background grid, kept faint so it reads as texture, not noise -->
+  <g stroke="#1A2028" stroke-width="1">
+    <line x1="0" y1="52" x2="1200" y2="52"/>
+    <line x1="0" y1="104" x2="1200" y2="104"/>
+    <line x1="0" y1="156" x2="1200" y2="156"/>
+    <line x1="0" y1="208" x2="1200" y2="208"/>
+  </g>
+  <g stroke="#161B23" stroke-width="1">
+    <line x1="150" y1="0" x2="150" y2="260"/>
+    <line x1="450" y1="0" x2="450" y2="260"/>
+    <line x1="750" y1="0" x2="750" y2="260"/>
+    <line x1="1050" y1="0" x2="1050" y2="260"/>
+  </g>
+
+  <!-- drifting codepoints, ambient texture only -->
+  <g font-family="'JetBrains Mono','Courier New',monospace" font-size="12" fill="#3FD4C7" opacity="0.16">
+    <text x="-80" y="40">U+200B  U+FE0F  U+E0041  U+202E  U+2060</text>
+    <animateTransform attributeName="transform" type="translate" from="0,0" to="1300,0" dur="26s" repeatCount="indefinite"/>
+  </g>
+  <g font-family="'JetBrains Mono','Courier New',monospace" font-size="11" fill="#E8A23D" opacity="0.12">
+    <text x="-60" y="236">U+E007F  U+FE00  U+200D  U+2066</text>
+    <animateTransform attributeName="transform" type="translate" from="0,0" to="-1300,0" dur="34s" repeatCount="indefinite"/>
+  </g>
+
+  <!-- outer frame -->
+  <rect x="0.5" y="0.5" width="1199" height="259" fill="none" stroke="#232A35" stroke-width="1"/>
+
+  <!-- corner reticles -->
+  <g stroke="#3FD4C7" stroke-width="2" opacity="0.55">
+    <path d="M20 34 L20 20 L34 20" fill="none"/>
+    <path d="M1166 20 L1180 20 L1180 34" fill="none"/>
+    <path d="M20 226 L20 240 L34 240" fill="none"/>
+    <path d="M1180 226 L1180 240 L1166 240" fill="none"/>
+  </g>
+
+  <!-- logo mark -->
+  <circle cx="90" cy="130" r="34" fill="none" stroke="#3FD4C7" stroke-width="2.5"/>
+  <circle cx="90" cy="130" r="5.5" fill="#E8A23D">
+    <animate attributeName="opacity" values="1;0.45;1" dur="2.2s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="90" cy="130" r="34" fill="none" stroke="#3FD4C7" stroke-width="1" opacity="0.5">
+    <animate attributeName="r" values="34;42;34" dur="4s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.5;0;0.5" dur="4s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- wordmark -->
+  <text x="150" y="120" font-family="'JetBrains Mono','Courier New',monospace" font-size="56" font-weight="700" letter-spacing="4" fill="#E6E9EE">ORIGIN TRACE</text>
+  <text x="151" y="158" font-family="'JetBrains Mono','Courier New',monospace" font-size="15" letter-spacing="4" fill="#8892A0">HIDDEN SIGNATURE DETECTION &amp; PURIFICATION</text>
+  <line x1="151" y1="180" x2="900" y2="180" stroke="#232A35" stroke-width="1"/>
+
+  <!-- reveal tag chips: appear only as the scanline passes their anchor point -->
+  <g id="chip1">
+    <line x1="222" y1="88" x2="222" y2="78" stroke="#E8A23D" stroke-width="1.5"/>
+    <rect x="184" y="58" width="76" height="20" rx="3" fill="#5C4520" stroke="#E8A23D" stroke-width="1"/>
+    <text x="222" y="72" font-family="'JetBrains Mono','Courier New',monospace" font-size="11" fill="#E8A23D" text-anchor="middle">U+200B</text>
+    <animate attributeName="opacity" attributeType="XML" values="0;0;1;1;0;0" keyTimes="0;0.37;0.40;0.44;0.47;1" dur="4s" repeatCount="indefinite"/>
+  </g>
+
+  <g id="chip2">
+    <line x1="90" y1="92" x2="90" y2="82" stroke="#E8A23D" stroke-width="1.5"/>
+    <rect x="52" y="60" width="76" height="20" rx="3" fill="#5C4520" stroke="#E8A23D" stroke-width="1"/>
+    <text x="90" y="74" font-family="'JetBrains Mono','Courier New',monospace" font-size="11" fill="#E8A23D" text-anchor="middle">U+2060</text>
+    <animate attributeName="opacity" attributeType="XML" values="0;0;1;1;0;0" keyTimes="0;0.47;0.50;0.54;0.57;1" dur="4s" repeatCount="indefinite"/>
+  </g>
+
+  <g id="chip3">
+    <line x1="470" y1="146" x2="470" y2="136" stroke="#E8A23D" stroke-width="1.5"/>
+    <rect x="432" y="114" width="76" height="20" rx="3" fill="#5C4520" stroke="#E8A23D" stroke-width="1"/>
+    <text x="470" y="128" font-family="'JetBrains Mono','Courier New',monospace" font-size="11" fill="#E8A23D" text-anchor="middle">U+E0041</text>
+    <animate attributeName="opacity" attributeType="XML" values="0;0;1;1;0;0" keyTimes="0;0.55;0.58;0.62;0.65;1" dur="4s" repeatCount="indefinite"/>
+  </g>
+
+  <!-- sweeping scanline -->
+  <g transform="translate(0,-50)">
+    <rect x="0" y="-35" width="1200" height="70" fill="url(#beamSoft)"/>
+    <rect x="0" y="0" width="1200" height="2" fill="url(#beamCore)"/>
+    <animateTransform attributeName="transform" type="translate" values="0,-50;0,310" keyTimes="0;1" dur="4s" repeatCount="indefinite"/>
+  </g>
+</svg>
